@@ -1,16 +1,18 @@
 # Descripción
 
-Clon del e-commerce de Tesla
+E-Commerce inspirado en Tesla-Shop es una plataforma de comercio electrónico que ofrece una amplia gama de productos relacionados con la marca Tesla, como vehículos eléctricos, accesorios, ropa y otros artículos. El sitio web está desarrollado utilizando tecnologías modernas y de vanguardia para brindar una experiencia de usuario excepcional.
 
 ### 🛠️ Tecnologías utilizadas:
 
-- CLSX
+- CLSX (Paquete que permite hacer condicionales con las clases de Tailwind)
 - Docker (Imagen de la base de datos)
 - Next.js
 - PostgreSQL
 - Prisma ORM
 - React icons
 - Swiper
+- Tailwind
+- TS-Node
 - TypeScript
 - Zustand
 
@@ -21,7 +23,8 @@ Clon del e-commerce de Tesla
 3. Instalar dependencias ```npm install```
 4. Levantar la base de datos ```docker-compose up -d```
 5. Correr las migraciones de Prisma ```npx prisma migrate dev```
-6. Correr el proyecto ```npm run dev```
+6. Ejecutar el seed ```npm run seed```
+7. Correr el proyecto ```npm run dev```
 
 
 # Imágenes del proyecto
