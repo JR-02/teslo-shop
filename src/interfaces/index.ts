@@ -1,1 +1,1 @@
-export type { Product, Size, Type, Category } from './product.interface';
+export { Category, Product, Size, Type } from './product.interface';

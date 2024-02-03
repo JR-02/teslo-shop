@@ -1,5 +1,7 @@
+'use client';
+
 import { PageNotFound } from '@/components';
 
-export default function CategoryNotFountPage() {
+export default function GenderErrorPage() {
   return <PageNotFound />;
 }

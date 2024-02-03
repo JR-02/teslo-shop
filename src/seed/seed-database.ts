@@ -1,6 +1,5 @@
 import { initialData } from './seed';
 import prisma from '../lib/prisma';
-import { url } from 'inspector';
 
 async function main() {
   // 1. Borrar registros previos
