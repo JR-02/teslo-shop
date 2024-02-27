@@ -1,3 +1,9 @@
-export { getPaginatedProductsWithImages } from './products/product-pagination';
-export { getProductBySlug } from './products/get-product-by-slug';
-export { getStockBySlug } from './products/get-stock-by-slug';
+// Login
+export * from './auth/login';
+export * from './auth/logout';
+export * from './auth/register';
+
+// Base de datos
+export * from './products/product-pagination';
+export * from './products/get-product-by-slug';
+export * from './products/get-stock-by-slug';

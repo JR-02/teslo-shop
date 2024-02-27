@@ -1,18 +1,21 @@
 // Product
-export { ProductMobileSlideShow } from './product/slideshow/ProductMobileSlideShow';
-export { ProductSlideShow } from './product/slideshow/ProductSlideShow';
-export { QuantitySelector } from './product/quantity-selector/QuantitySelector';
-export { SizeSelector } from './product/size-selector/SizeSelector';
-export { StockLabel } from './product/stock-label/StockLabel';
+export * from './product/slideshow/ProductMobileSlideShow';
+export * from './product/slideshow/ProductSlideShow';
+export * from './product/quantity-selector/QuantitySelector';
+export * from './product/size-selector/SizeSelector';
+export * from './product/stock-label/StockLabel';
 
 // Products
-export { ProductGrid } from './products/product-grid/ProductGrid';
-export { ProductGridItem } from './products/product-grid/ProductGridItem';
+export * from './products/product-grid/ProductGrid';
+export * from './products/product-grid/ProductGridItem';
+
+// Providers
+export * from './provider/Provider';
 
 // UI
-export { Footer } from './ui/footer/Footer';
-export { PageNotFound } from './ui/not-found/PageNotFound';
-export { Pagination } from './ui/pagination/Pagination';
-export { Sidebar } from './ui/sidebar/Sidebar';
-export { Title } from './ui/title/Title';
-export { TopMenu } from './ui/top-menu/TopMenu';
+export * from './ui/footer/Footer';
+export * from './ui/not-found/PageNotFound';
+export * from './ui/pagination/Pagination';
+export * from './ui/sidebar/Sidebar';
+export * from './ui/title/Title';
+export * from './ui/top-menu/TopMenu';

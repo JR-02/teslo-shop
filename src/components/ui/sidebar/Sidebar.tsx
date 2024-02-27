@@ -1,6 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
+
+import { logout } from '@/actions';
+import { useUIStore } from '@/store';
+
+import clsx from 'clsx';
 import {
   IoCloseOutline,
   IoLogInOutline,
@@ -11,31 +17,6 @@ import {
   IoShirtOutline,
   IoTicketOutline,
 } from 'react-icons/io5';
-import { useUIStore } from '@/store';
-import clsx from 'clsx';
-
-const firstMenuItems = [
-  {
-    title: 'Perfil',
-    icon: <IoPersonOutline size={30} />,
-    path: '/',
-  },
-  {
-    title: 'Ordenes',
-    icon: <IoTicketOutline size={30} />,
-    path: '/',
-  },
-  {
-    title: 'Ingresar',
-    icon: <IoLogInOutline size={30} />,
-    path: '/',
-  },
-  {
-    title: 'Salir',
-    icon: <IoLogOutOutline size={30} />,
-    path: '/',
-  },
-];
 
 const secondMenuItems = [
   {
@@ -59,6 +40,10 @@ export const Sidebar = () => {
   const isSideMenuOpen = useUIStore((state) => state.isSideMenuOpen);
   const closeMenu = useUIStore((state) => state.closeSideMenu);
 
+  const { data: session } = useSession();
+  const isAuthenticated = Boolean(session?.user);
+  const isAdmin = session?.user.role === 'admin';
+
   return (
     <div>
       {/* Background black */}
@@ -78,14 +63,14 @@ export const Sidebar = () => {
       <nav
         //TODO: Efecto de slide
         className={clsx(
-          'fixed p-5 right-0 top-0 w-[500px] h-screen bg-white z-20 shadow-2xl transform transition-all duration-300',
+          'fixed p-5 right-0 top-0 w-[400px] h-screen bg-white z-20 shadow-2xl transform transition-all duration-300',
           {
             'translate-x-full': !isSideMenuOpen,
           }
         )}
       >
         <IoCloseOutline
-          size={50}
+          size={30}
           className='absolute top-5 right-5 cursor-pointer'
           onClick={closeMenu}
         />
@@ -102,30 +87,67 @@ export const Sidebar = () => {
 
         {/* Menu */}
 
-        {firstMenuItems.map((item) => (
-          <Link
-            key={item.title}
-            href={item.path}
-            className='flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all'
-          >
-            {item.icon}
-            <span className='ml-3 text-xl'>{item.title}</span>
-          </Link>
-        ))}
+        {isAuthenticated && (
+          <>
+            <Link
+              href='/profile'
+              onClick={closeMenu}
+              className='flex items-center mt-5 p-2 hover:bg-gray-100 rounded transition-all'
+            >
+              <IoPersonOutline size={30} />
+              <span className='ml-3 text-xl'>Perfil</span>
+            </Link>
 
-        {/* Line Separator */}
-        <div className='w-full h-px bg-gray-200 my-10' />
+            <Link
+              href='/'
+              onClick={closeMenu}
+              className='flex items-center mt-5 p-2 hover:bg-gray-100 rounded transition-all'
+            >
+              <IoTicketOutline size={30} />
+              <span className='ml-3 text-xl'>Ordenes</span>
+            </Link>
+          </>
+        )}
 
-        {secondMenuItems.map((item) => (
-          <Link
-            key={item.title}
-            href={item.path}
-            className='flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all'
+        {isAuthenticated && (
+          <button
+            onClick={() => logout()}
+            className='flex w-full items-center mt-5 p-2 hover:bg-gray-100 rounded transition-all'
           >
-            {item.icon}
-            <span className='ml-3 text-xl'>{item.title}</span>
+            <IoLogOutOutline size={30} />
+            <span className='ml-3 text-xl'>Salir</span>
+          </button>
+        )}
+
+        {!isAuthenticated && (
+          <Link
+            href='/auth/login'
+            onClick={closeMenu}
+            className='flex items-center mt-5 p-2 hover:bg-gray-100 rounded transition-all'
+          >
+            <IoLogInOutline size={30} />
+            <span className='ml-3 text-xl'>Ingresar</span>
           </Link>
-        ))}
+        )}
+
+        {isAdmin && (
+          <>
+            {/* Line Separator */}
+            <div className='w-full h-px bg-gray-200 my-5' />
+
+            {secondMenuItems.map((item) => (
+              <Link
+                key={item.title}
+                href={item.path}
+                onClick={closeMenu}
+                className='flex items-center mt-5 p-2 hover:bg-gray-100 rounded transition-all'
+              >
+                {item.icon}
+                <span className='ml-3 text-xl'>{item.title}</span>
+              </Link>
+            ))}
+          </>
+        )}
       </nav>
     </div>
   );
