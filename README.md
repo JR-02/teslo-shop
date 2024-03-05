@@ -4,27 +4,32 @@ E-Commerce inspirado en Tesla-Shop es una plataforma de comercio electrónico qu
 
 ### 🛠️ Tecnologías utilizadas:
 
+- Bcryptjs (Encriptador)
 - CLSX (Paquete que permite hacer condicionales con las clases de Tailwind)
 - Docker (Imagen de la base de datos)
+- Next-Auth (Autenticación)
 - Next.js
 - PostgreSQL
 - Prisma ORM
+- React Hook Form
 - React icons
-- Swiper
+- Swiper (Slider)
 - Tailwind
 - TS-Node
 - TypeScript
+- Zod
 - Zustand
 
 ## 🚀 Correr en DEV
 
-1. Clonar el repositorio
-2. Crear una copia del ```.env.template``` y renombrarlo a ```.env``` y cambiar las variables de entorno
+1. Clonar el repositorio.
+2. Crear una copia del ```.env.template``` y renombrarlo a ```.env``` y cambiar las variables de entorno.
 3. Instalar dependencias ```npm install```
 4. Levantar la base de datos ```docker-compose up -d```
 5. Correr las migraciones de Prisma ```npx prisma migrate dev```
 6. Ejecutar el seed ```npm run seed```
-7. Correr el proyecto ```npm run dev```
+7. Limpiar el localStorage del navegador.
+8. Correr el proyecto ```npm run dev```
 
 
 # Imágenes del proyecto
