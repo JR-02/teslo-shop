@@ -10,6 +10,8 @@ export * from './auth/register';
 
 // Order
 export * from './order/place-order';
+export * from './order/get-order-by-id';
+export * from './order/get-order-by-user';
 
 // Base de datos
 export * from './countries/get-countries';
