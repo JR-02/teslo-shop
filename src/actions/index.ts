@@ -13,6 +13,10 @@ export * from './order/place-order';
 export * from './order/get-order-by-id';
 export * from './order/get-order-by-user';
 
+// Payments
+export * from './payments/set-transaction-id';
+export * from './payments/paypal-check-payment';
+
 // Base de datos
 export * from './countries/get-countries';
 export * from './products/get-product-by-slug';

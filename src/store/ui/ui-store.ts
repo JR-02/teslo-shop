@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import {} from 'zustand/middleware';
 
 interface State {
   isSideMenuOpen: boolean;
