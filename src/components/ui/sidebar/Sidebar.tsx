@@ -22,17 +22,17 @@ const secondMenuItems = [
   {
     title: 'Productos',
     icon: <IoShirtOutline size={30} />,
-    path: '/',
+    path: '/admin/products',
   },
   {
     title: 'Ordenes',
     icon: <IoTicketOutline size={30} />,
-    path: '/',
+    path: '/admin/orders',
   },
   {
     title: 'Usuarios',
     icon: <IoPeopleOutline size={30} />,
-    path: '/',
+    path: '/admin/users',
   },
 ];
 

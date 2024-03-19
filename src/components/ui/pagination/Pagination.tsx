@@ -1,9 +1,10 @@
 'use client';
 
-import { generatePagination } from '@/utils';
 import Link from 'next/link';
 import { redirect, usePathname, useSearchParams } from 'next/navigation';
+
 import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5';
+import { generatePagination } from '@/utils';
 
 interface Props {
   totalPages: number;
